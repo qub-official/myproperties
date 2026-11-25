@@ -1,0 +1,13 @@
+node_modules/
+dist/
+out/
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.env
+
+# promo videos made with /brag (kept local)
+brag-output*/

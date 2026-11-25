@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MyProperties: a calm little toolkit for Windows</title>
+  <meta name="description" content="Folder tree with sizes, full PC properties, video to audio, animated wallpapers and Windows themes. Free, open source and fully offline.">
+  <meta property="og:title" content="MyProperties: a calm little toolkit for Windows">
+  <meta property="og:description" content="Folder tree & sizes, full PC specs, video → audio, live wallpapers and themes. Free & open source.">
+  <meta property="og:image" content="assets/icon.png">
+  <meta name="theme-color" content="#F5F4F2">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top"><img src="assets/logo.svg" alt="" width="32" height="32"><span>MyProperties</span><small>내 PC 도우미</small></a>
+      <nav class="links">
+        <a href="#features">Features</a>
+        <a href="#wallpapers">Wallpapers</a>
+        <a href="#faq">FAQ</a>
+        <a href="#" data-repo-link target="_blank" rel="noopener">GitHub</a>
+      </nav>
+      <a class="btn primary sm" href="#download">Download</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">안녕하세요 · Free Windows toolkit</span>
+          <h1>Your PC,<br><span class="hl">neatly explained.</span></h1>
+          <p class="lead">See where every gigabyte goes, read every spec of your machine, turn videos into audio and give your desktop gentle motion, all in one calm little app.</p>
+          <div class="cta">
+            <a class="btn primary" href="#" data-download="setup">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M5 20h14"/></svg>
+              Download for Windows
+            </a>
+            <a class="btn" href="#" data-download="portable">Portable .exe</a>
+          </div>
+          <p class="fine">Windows 10 &amp; 11 · 64-bit · <span data-version>v1.0.0</span> · MIT licensed · works offline</p>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <div class="window">
+            <div class="win-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><b>MyProperties</b></div>
+            <div class="win-body">
+              <aside class="win-side">
+                <i class="on"></i><i></i><i></i><i></i><i></i>
+              </aside>
+              <div class="win-main">
+                <div class="mini-eyebrow">폴더 · Folder Tree</div>
+                <div class="mini-h">Local Disk (C:): 412.6 GB</div>
+                <div class="mini-tree">
+                  <div class="tr"><span>📁 Users</span><em style="--w:78%"></em><b>186.2 GB</b></div>
+                  <div class="tr in"><span>📁 Videos</span><em style="--w:52%"></em><b>96.4 GB</b></div>
+                  <div class="tr in"><span>📁 Downloads</span><em style="--w:30%"></em><b>54.1 GB</b></div>
+                  <div class="tr"><span>📁 Windows</span><em style="--w:22%"></em><b>32.8 GB</b></div>
+                  <div class="tr"><span>📁 Program Files</span><em style="--w:18%"></em><b>27.0 GB</b></div>
+                  <div class="tr"><span>📄 pagefile.sys</span><em class="b" style="--w:9%"></em><b>12.0 GB</b></div>
+                </div>
+                <div class="mini-gauges">
+                  <div><small>CPU</small><b>12%</b><svg viewBox="0 0 100 30" preserveAspectRatio="none"><polyline points="0,24 10,20 20,22 30,14 40,18 50,10 60,16 70,12 80,18 90,8 100,14"/></svg></div>
+                  <div><small>Memory</small><b>9.4 GB</b><svg viewBox="0 0 100 30" preserveAspectRatio="none"><polyline points="0,16 10,15 20,16 30,14 40,14 50,13 60,14 70,12 80,13 90,12 100,12"/></svg></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <img class="mascot" src="assets/mochi.svg" alt="">
+          <div class="sticker s1">✦ 100% offline</div>
+          <div class="sticker s2">무료 · Free</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STRIP -->
+    <section class="strip">
+      <div class="wrap strip-grid">
+        <div><b>5</b><span>tools in one app</span></div>
+        <div><b>0</b><span>accounts, ads or tracking</span></div>
+        <div><b>6</b><span>animated scenes included</span></div>
+        <div><b>MIT</b><span>open source license</span></div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">기능 · Features</span>
+          <h2>Everything you keep searching for, in one place</h2>
+          <p class="lead">No more five different utilities. MyProperties is tidy, fast and honest about what it does.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-copy">
+            <span class="tag">01 · 폴더</span>
+            <h3>Folder tree with real sizes</h3>
+            <p>Scan the <b>entire computer</b>, a single disk, an <b>external USB drive</b>, a <b>phone or camera</b> or any folder. Browse a live tree sorted by size, find the largest files, see which file types eat your space and search by name.</p>
+            <ul class="checks">
+              <li>Export as TXT tree, CSV, JSON or a pretty HTML page</li>
+              <li>Choose the depth: 1 level or everything</li>
+              <li>Runs in the background, safe on huge drives</li>
+              <li>Double-click any item to show it in Explorer</li>
+            </ul>
+          </div>
+          <div class="feature-art card">
+            <pre class="tree-txt">C:\Users\me  [186.2 GB]
+├── Videos\  [96.4 GB · 1,204 files]
+│   ├── Trips\  [61.0 GB]
+│   └── Screen Recordings\  [35.4 GB]
+├── Downloads\  [54.1 GB · 3,891 files]
+│   ├── installer.iso  [5.8 GB]
+│   └── photos.zip  [2.1 GB]
+├── Documents\  [21.3 GB]
+└── Music\  [14.4 GB]</pre>
+            <div class="chips"><span>.txt</span><span>.csv</span><span>.json</span><span>.html</span></div>
+          </div>
+        </div>
+
+        <div class="feature rev">
+          <div class="feature-copy">
+            <span class="tag">02 · 정보</span>
+            <h3>Every property of your PC</h3>
+            <p>Processor, graphics cards &amp; displays, RAM modules, disks &amp; partitions, motherboard, BIOS, Windows edition, build &amp; install date, Secure Boot, network adapters, Wi-Fi, battery health, audio, USB, Bluetooth, printers, installed programs and startup apps.</p>
+            <ul class="checks">
+              <li>Live CPU, per-core, memory and network graphs</li>
+              <li>Export a full report as TXT, JSON or HTML</li>
+              <li>No admin rights needed</li>
+            </ul>
+          </div>
+          <div class="feature-art card specs">
+            <div class="spec"><small>Processor</small><b>AMD Ryzen 7 7840HS</b><em>8 cores · 16 threads · 5.1 GHz</em></div>
+            <div class="spec"><small>Graphics</small><b>NVIDIA GeForce RTX 4060</b><em>8 GB VRAM</em></div>
+            <div class="spec"><small>Memory</small><b>32 GB DDR5</b><em>2 × 16 GB · 5600 MHz</em></div>
+            <div class="spec"><small>System</small><b>Windows 11 Home</b><em>24H2 · build 26100</em></div>
+            <div class="cores"><i style="--h:30%"></i><i style="--h:62%"></i><i style="--h:18%"></i><i style="--h:44%"></i><i style="--h:80%"></i><i style="--h:26%"></i><i style="--h:52%"></i><i style="--h:12%"></i></div>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-copy">
+            <span class="tag">03 · 오디오</span>
+            <h3>Video → audio, in a drop</h3>
+            <p>Drag in one video or fifty. Get <b>MP3, M4A, WAV, FLAC, OGG or Opus</b> with the bitrate you want. Trim start/end, change sample rate, convert to mono, boost volume or normalize loudness. Powered by FFmpeg, bundled inside.</p>
+            <ul class="checks">
+              <li>MP4, MKV, MOV, AVI, WEBM, FLV, WMV and more</li>
+              <li>Batch queue with live progress</li>
+              <li>Keeps title, artist and other metadata</li>
+            </ul>
+          </div>
+          <div class="feature-art card conv">
+            <div class="fmt"><span class="on">MP3</span><span>M4A</span><span>WAV</span><span>FLAC</span><span>OGG</span><span>OPUS</span></div>
+            <div class="job"><b>🎬 concert-2026.mp4</b><small>Done · 8.4 MB · 3.1s</small><i style="--w:100%"></i></div>
+            <div class="job"><b>🎬 podcast-ep12.mkv</b><small>Converting… 64%</small><i style="--w:64%"></i></div>
+            <div class="job"><b>🎬 lecture.mov</b><small>Waiting…</small><i style="--w:0%"></i></div>
+          </div>
+        </div>
+
+        <div class="feature rev">
+          <div class="feature-copy">
+            <span class="tag">04 · 배경화면</span>
+            <h3>Live wallpapers behind your icons</h3>
+            <p>Play your own <b>video or GIF</b>, or pick one of our hand-made animated scenes. It sits behind the desktop icons on every monitor, with an optional minimal clock, and pauses when you lock the PC or run on battery.</p>
+            <ul class="checks">
+              <li>Works on Windows 10 and Windows 11 24H2+</li>
+              <li>Fill, fit, stretch or center, plus speed &amp; dim</li>
+              <li>Keeps running quietly in the tray</li>
+            </ul>
+          </div>
+          <div class="feature-art card scene-art"><canvas data-scene="mochi"></canvas><div class="clock"><b>09:41</b><span>Tuesday, November 24 · 화요일</span></div></div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-copy">
+            <span class="tag">05 · 테마</span>
+            <h3>Themes for the app and for Windows</h3>
+            <p>Switch Windows between light and dark, choose an <b>accent colour</b>, toggle transparency, set a static wallpaper or apply any installed theme pack. The app itself comes in five soft themes: Paper, Cream, Sand, Nude and Ink.</p>
+            <ul class="checks">
+              <li>One click: “all light” or “all dark”</li>
+              <li>Accent on Start, taskbar and title bars</li>
+              <li>Fill, fit, stretch, tile, center or span</li>
+            </ul>
+          </div>
+          <div class="feature-art card themes-art">
+            <div class="tcard" style="--bg:#FFFFFF;--c:#F5F4F2"><i></i><span>Paper</span></div>
+            <div class="tcard on" style="--bg:#F5F4F2;--c:#FFFFFF"><i></i><span>Cream</span></div>
+            <div class="tcard" style="--bg:#E9E4E0;--c:#F7F5F3"><i></i><span>Sand</span></div>
+            <div class="tcard" style="--bg:#EEE5E0;--c:#FFFFFF"><i></i><span>Nude</span></div>
+            <div class="tcard dark" style="--bg:#0C0F14;--c:#151820"><i></i><span>Ink</span></div>
+            <div class="accents"><b style="--a:#A87C3A"></b><b style="--a:#B08A8A"></b><b style="--a:#B49A85"></b><b style="--a:#2E2F33"></b><b style="--a:#0C0F14"></b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WALLPAPERS -->
+    <section id="wallpapers" class="section tinted">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">배경 · Scenes</span>
+          <h2>Six little worlds for your desktop</h2>
+          <p class="lead">Drawn in code, light on your CPU, and these previews are running live.</p>
+        </div>
+        <div class="gallery" id="gallery"></div>
+      </div>
+    </section>
+
+    <!-- PALETTE -->
+    <section class="section">
+      <div class="wrap palette-wrap">
+        <div>
+          <span class="eyebrow">색 · Palette</span>
+          <h2>Quiet colours, on purpose</h2>
+          <p class="lead">Paper whites and warm sand for calm, ink black for clarity, and three small accents (caramel, mauve and butter) used only where your eyes should go.</p>
+        </div>
+        <div class="palette">
+          <div style="--c:#FFFFFF"><span>Paper</span><code>#FFFFFF</code></div>
+          <div style="--c:#F5F4F2"><span>Cream</span><code>#F5F4F2</code></div>
+          <div style="--c:#E9E4E0"><span>Sand</span><code>#E9E4E0</code></div>
+          <div style="--c:#EEE5E0"><span>Nude</span><code>#EEE5E0</code></div>
+          <div class="d" style="--c:#0C0F14"><span>Ink</span><code>#0C0F14</code></div>
+          <div class="d" style="--c:#A87C3A"><span>Caramel</span><code>#A87C3A</code></div>
+          <div class="d" style="--c:#B08A8A"><span>Mauve</span><code>#B08A8A</code></div>
+          <div style="--c:#FDEBB0"><span>Butter</span><code>#FDEBB0</code></div>
+          <div class="d" style="--c:#B49A85"><span>Taupe</span><code>#B49A85</code></div>
+          <div class="d" style="--c:#2E2F33"><span>Charcoal</span><code>#2E2F33</code></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOWNLOAD -->
+    <section id="download" class="section">
+      <div class="wrap">
+        <div class="download card">
+          <img src="assets/mochi.svg" alt="" class="dl-mascot">
+          <div class="dl-copy">
+            <span class="eyebrow">다운로드 · Download</span>
+            <h2>Get MyProperties</h2>
+            <p class="lead">Free forever. Pick the installer for a Start menu entry and auto-start, or the portable version to run from anywhere, even a USB stick.</p>
+            <div class="cta">
+              <a class="btn primary" href="#" data-download="setup">Installer (.exe)</a>
+              <a class="btn" href="#" data-download="portable">Portable (.exe)</a>
+              <a class="btn ghost" href="#" data-repo-link target="_blank" rel="noopener">Source code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="steps">
+          <div><b>1</b><h4>Download</h4><p>Grab the installer or the portable file from the latest release.</p></div>
+          <div><b>2</b><h4>Run it</h4><p>Windows may show “Windows protected your PC”. Click <em>More info → Run anyway</em> (the app isn't code-signed yet).</p></div>
+          <div><b>3</b><h4>Enjoy</h4><p>Scan a drive, read your specs or set a live wallpaper. That's it.</p></div>
+        </div>
+
+        <div class="card build">
+          <h3>Build it yourself</h3>
+          <pre><code>git clone <span data-repo-git>https://github.com/qub-official/myproperties.git</span>
+cd myproperties
+npm install
+npm start          # run in development
+npm run dist       # build installer + portable into /dist</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section tinted">
+      <div class="wrap narrow">
+        <div class="section-head center">
+          <span class="eyebrow">질문 · FAQ</span>
+          <h2>Good questions</h2>
+        </div>
+        <details><summary>Is it safe? Does it send my data anywhere?</summary><p>Everything runs locally. MyProperties has no accounts, analytics or network calls. The full source code is on GitHub for you to read.</p></details>
+        <details><summary>Why does Windows SmartScreen warn me?</summary><p>Code-signing certificates are expensive, so the builds are unsigned for now. Click “More info” and then “Run anyway”. You can also build the app yourself from source.</p></details>
+        <details><summary>Do I need administrator rights?</summary><p>No. A few protected system folders can't be read without admin rights; they're shown as “locked” and skipped. All theme changes are per-user.</p></details>
+        <details><summary>Can it scan my phone?</summary><p>Yes. Phones and cameras connected over USB (MTP) appear under sources. Unlock the phone and choose “File transfer”. Device scans are slower than disk scans.</p></details>
+        <details><summary>Will a live wallpaper slow down my PC?</summary><p>Scenes are lightweight canvas animations. Videos use hardware decoding. Playback pauses when you lock the PC and, if you like, when you run on battery.</p></details>
+        <details><summary>How do I remove the live wallpaper?</summary><p>Click “Stop” on the Live Wallpaper page or use the tray icon. Your normal wallpaper comes right back.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap foot-inner">
+      <div class="brand"><img src="assets/logo.svg" alt="" width="28" height="28"><span>MyProperties</span></div>
+      <p>Made with care · MIT License · FFmpeg (LGPL/GPL) &amp; systeminformation (MIT) included.</p>
+      <a href="#" data-repo-link target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </footer>
+
+  <script src="assets/scenes.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

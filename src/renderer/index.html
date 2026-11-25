@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en" data-theme="cream">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' file: data: blob:; media-src 'self' file: blob:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self'">
+  <title>MyProperties</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="titlebar">
+    <span class="logo" id="logo"></span>
+    <span class="brand">MyProperties</span>
+    <span class="brand-kr">내 PC 도우미</span>
+  </header>
+
+  <div class="shell">
+    <nav class="sidebar">
+      <button class="nav-item active" data-nav="home"><i data-icon="home"></i>Home<span class="kr">홈</span></button>
+      <div class="nav-label">Tools</div>
+      <button class="nav-item" data-nav="explorer"><i data-icon="tree"></i>Folder Tree<span class="kr">폴더</span></button>
+      <button class="nav-item" data-nav="system"><i data-icon="cpu"></i>PC Properties<span class="kr">정보</span></button>
+      <button class="nav-item" data-nav="audio"><i data-icon="music"></i>Video → Audio<span class="kr">오디오</span></button>
+      <div class="nav-label">Personalize</div>
+      <button class="nav-item" data-nav="wallpaper"><i data-icon="wallpaper"></i>Live Wallpaper<span class="kr">배경</span></button>
+      <button class="nav-item" data-nav="themes"><i data-icon="palette"></i>Themes<span class="kr">테마</span></button>
+      <div class="spacer"></div>
+      <button class="nav-item" data-nav="about"><i data-icon="settings"></i>Settings &amp; About</button>
+      <div class="mascot-card"><span id="side-mascot"></span><div><b>Mochi</b> is here.<br><span class="muted" id="side-tip">Have a calm day ☁</span></div></div>
+    </nav>
+
+    <main class="content" id="content">
+      <!-- ============ HOME ============ -->
+      <section class="page active" data-page="home">
+        <div class="hero-card">
+          <div>
+            <span class="eyebrow">안녕하세요 · Hello</span>
+            <h1 id="greeting">Good day</h1>
+            <p class="lead">Everything about your PC, in one tidy place. See where your space goes, read every spec, turn videos into audio and give your desktop some <span class="hl">gentle motion</span>.</p>
+            <div class="row" style="margin-top:20px">
+              <button class="btn primary" data-goto="explorer"><i data-icon="tree"></i>Scan my PC</button>
+              <button class="btn" data-goto="wallpaper"><i data-icon="sparkle"></i>Try a live wallpaper</button>
+            </div>
+          </div>
+          <div class="mascot" id="hero-mascot"></div>
+        </div>
+
+        <div class="grid grid-4" style="margin-top:18px" id="home-stats">
+          <div class="stat"><div class="k"><i data-icon="windows"></i>System</div><div class="v" data-stat="os"><div class="skeleton"></div></div></div>
+          <div class="stat"><div class="k"><i data-icon="cpu"></i>Processor</div><div class="v" data-stat="cpu"><div class="skeleton"></div></div></div>
+          <div class="stat"><div class="k"><i data-icon="memory"></i>Memory</div><div class="v" data-stat="ram"><div class="skeleton"></div></div></div>
+          <div class="stat"><div class="k"><i data-icon="gpu"></i>Graphics</div><div class="v" data-stat="gpu"><div class="skeleton"></div></div></div>
+        </div>
+
+        <h2 style="margin:32px 0 14px">What would you like to do?</h2>
+        <div class="grid grid-3">
+          <button class="tile" data-goto="explorer"><span class="ic"><i data-icon="tree"></i></span><h3>Folder tree &amp; sizes</h3><p>Scan a folder, a disk, a USB drive, a phone or the whole computer. Export as TXT, CSV, JSON or HTML.</p></button>
+          <button class="tile" data-goto="system"><span class="ic"><i data-icon="cpu"></i></span><h3>PC properties</h3><p>CPU, GPU, RAM modules, disks, motherboard, BIOS, Windows build, network, battery, apps and more.</p></button>
+          <button class="tile" data-goto="audio"><span class="ic"><i data-icon="music"></i></span><h3>Video → audio</h3><p>Drop videos and get MP3, M4A, WAV, FLAC, OGG or Opus, with trimming and loudness normalization.</p></button>
+          <button class="tile" data-goto="wallpaper"><span class="ic"><i data-icon="wallpaper"></i></span><h3>Live wallpaper</h3><p>Play a video, a GIF or one of our animated scenes behind your desktop icons.</p></button>
+          <button class="tile" data-goto="themes"><span class="ic"><i data-icon="palette"></i></span><h3>Themes</h3><p>Switch Windows light/dark mode, accent colour, transparency, static wallpaper and app themes.</p></button>
+          <button class="tile" data-goto="about"><span class="ic"><i data-icon="settings"></i></span><h3>Settings</h3><p>Start with Windows, keep running in the tray and restore your wallpaper automatically.</p></button>
+        </div>
+      </section>
+
+      <!-- ============ EXPLORER ============ -->
+      <section class="page" data-page="explorer">
+        <div class="page-head">
+          <div>
+            <span class="eyebrow">폴더 · Folder Tree</span>
+            <h1>Where did my space go?</h1>
+            <p class="lead">Choose what to scan. You'll get a full tree of every folder and file with its size, plus the largest files and file types.</p>
+          </div>
+          <button class="btn" id="ex-refresh"><i data-icon="refresh"></i>Refresh drives</button>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <div><h2>1. Pick a source</h2><div class="card-sub">The entire computer, a disk, an external drive, a device or any folder.</div></div>
+          </div>
+          <div class="sources" id="ex-sources"><div class="skeleton" style="height:90px"></div><div class="skeleton" style="height:90px"></div><div class="skeleton" style="height:90px"></div></div>
+          <div class="row between" style="margin-top:18px">
+            <label class="switch"><input type="checkbox" id="ex-files" checked> List individual files (turn off for very large drives to use less memory)</label>
+            <button class="btn primary" id="ex-scan" disabled><i data-icon="search"></i>Start scan</button>
+          </div>
+        </div>
+
+        <div class="card hidden" id="ex-progress">
+          <div class="card-head">
+            <div><h2>Scanning <span id="ex-scan-name"></span>…</h2><div class="card-sub">Hang tight. Big drives can take a few minutes.</div></div>
+            <button class="btn danger" id="ex-cancel"><i data-icon="x"></i>Cancel</button>
+          </div>
+          <div class="loader"></div>
+          <div class="scan-progress">
+            <div class="stat"><div class="k">Files</div><div class="v num" id="ex-p-files">0</div></div>
+            <div class="stat"><div class="k">Folders</div><div class="v num" id="ex-p-dirs">0</div></div>
+            <div class="stat"><div class="k">Total size</div><div class="v num" id="ex-p-bytes">0 B</div></div>
+            <div class="stat"><div class="k">Elapsed</div><div class="v num" id="ex-p-time">0s</div></div>
+          </div>
+          <div class="current-path" id="ex-p-path"></div>
+        </div>
+
+        <div class="card hidden" id="ex-result">
+          <div class="card-head">
+            <div>
+              <h2 id="ex-r-title">Result</h2>
+              <div class="card-sub" id="ex-r-sub"></div>
+            </div>
+            <div class="row">
+              <label class="field" style="flex-direction:row;align-items:center;gap:8px"><span>Depth</span>
+                <select class="input" id="ex-depth" style="height:30px;width:auto">
+                  <option value="0">All levels</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="5">5</option><option value="8">8</option>
+                </select>
+              </label>
+              <button class="btn sm" data-export="txt"><i data-icon="download"></i>TXT tree</button>
+              <button class="btn sm" data-export="csv">CSV</button>
+              <button class="btn sm" data-export="json">JSON</button>
+              <button class="btn sm" data-export="html">HTML</button>
+            </div>
+          </div>
+          <div class="tabs" id="ex-tabs">
+            <button class="on" data-tab="tree">Tree</button>
+            <button data-tab="largest">Largest files</button>
+            <button data-tab="types">File types</button>
+            <button data-tab="search">Search</button>
+          </div>
+          <div data-tabpane="tree">
+            <div class="tree-head">
+              <button data-sort="name">Name</button>
+              <button data-sort="size" class="on">Size</button>
+              <button data-sort="files" style="text-align:right">Files</button>
+              <span style="text-align:right">Folders</span>
+              <button data-sort="mtime" style="text-align:right">Modified</button>
+            </div>
+            <div class="tree" id="ex-tree"></div>
+          </div>
+          <div data-tabpane="largest" class="hidden"><div class="tree" id="ex-largest"></div></div>
+          <div data-tabpane="types" class="hidden"><div class="tree" id="ex-types"></div></div>
+          <div data-tabpane="search" class="hidden">
+            <div class="row" style="padding:16px 0"><input class="input" id="ex-q" placeholder="Search file and folder names…" style="flex:1"><button class="btn" id="ex-q-go"><i data-icon="search"></i>Search</button></div>
+            <div class="tree" id="ex-search"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SYSTEM ============ -->
+      <section class="page" data-page="system">
+        <div class="page-head">
+          <div>
+            <span class="eyebrow">정보 · PC Properties</span>
+            <h1>Everything about this PC</h1>
+            <p class="lead">Hardware, Windows and software details, read live from your system.</p>
+          </div>
+          <div class="row">
+            <button class="btn sm" data-sysexport="txt"><i data-icon="download"></i>TXT</button>
+            <button class="btn sm" data-sysexport="json">JSON</button>
+            <button class="btn sm" data-sysexport="html">HTML report</button>
+          </div>
+        </div>
+
+        <div class="gauges">
+          <div class="gauge"><div class="k">CPU load</div><div class="v num" id="g-cpu">–</div><svg class="spark" id="s-cpu" viewBox="0 0 100 36" preserveAspectRatio="none"></svg></div>
+          <div class="gauge"><div class="k">Memory in use</div><div class="v num" id="g-mem">–</div><svg class="spark" id="s-mem" viewBox="0 0 100 36" preserveAspectRatio="none"></svg></div>
+          <div class="gauge"><div class="k">Network ↓ / ↑</div><div class="v num" id="g-net">–</div><svg class="spark" id="s-net" viewBox="0 0 100 36" preserveAspectRatio="none"></svg></div>
+          <div class="gauge"><div class="k">Uptime</div><div class="v num" id="g-up">–</div><div class="muted" id="g-extra" style="font-size:12px"></div></div>
+        </div>
+
+        <div class="sys-layout">
+          <div class="sys-nav" id="sys-nav">
+            <button class="on" data-sec="os">Windows</button>
+            <button data-sec="cpu">Processor</button>
+            <button data-sec="memory">Memory</button>
+            <button data-sec="graphics">Graphics &amp; displays</button>
+            <button data-sec="storage">Storage</button>
+            <button data-sec="board">Motherboard &amp; BIOS</button>
+            <button data-sec="network">Network</button>
+            <button data-sec="power">Battery &amp; power</button>
+            <button data-sec="devices">Audio &amp; devices</button>
+            <button data-sec="software">Software</button>
+          </div>
+          <div class="card" id="sys-body"></div>
+        </div>
+      </section>
+
+      <!-- ============ AUDIO ============ -->
+      <section class="page" data-page="audio">
+        <div class="page-head">
+          <div>
+            <span class="eyebrow">오디오 · Video to Audio</span>
+            <h1>Keep the sound, drop the picture</h1>
+            <p class="lead">Convert any video (MP4, MKV, MOV, AVI, WEBM, FLV…) to audio. Works offline: everything stays on your PC.</p>
+          </div>
+        </div>
+        <div class="grid au-layout" style="grid-template-columns:minmax(0,1fr) 340px;align-items:start">
+          <div class="stack">
+            <div class="drop" id="au-drop">
+              <i data-icon="video" class="big-wrap"></i>
+              <h2>Drop videos here</h2>
+              <p class="muted">or click to choose files · batch conversion supported</p>
+            </div>
+            <div class="card">
+              <div class="card-head">
+                <div><h2>Queue</h2><div class="card-sub" id="au-sum">No files yet</div></div>
+                <div class="row">
+                  <button class="btn sm ghost" id="au-clear">Clear finished</button>
+                  <button class="btn sm danger" id="au-cancel">Cancel all</button>
+                  <button class="btn primary" id="au-start" disabled><i data-icon="play"></i>Convert</button>
+                </div>
+              </div>
+              <div id="au-jobs"><div class="empty" id="au-empty"></div></div>
+            </div>
+          </div>
+          <div class="card stack">
+            <h2>Output</h2>
+            <div class="formats" id="au-formats">
+              <button data-fmt="mp3">MP3<small>universal</small></button>
+              <button data-fmt="m4a">M4A<small>AAC</small></button>
+              <button data-fmt="wav">WAV<small>lossless</small></button>
+              <button data-fmt="flac">FLAC<small>lossless</small></button>
+              <button data-fmt="ogg">OGG<small>vorbis</small></button>
+              <button data-fmt="opus">OPUS<small>small</small></button>
+            </div>
+            <label class="field" id="au-br-wrap"><span>Bitrate</span>
+              <select class="input" id="au-br"><option>96</option><option>128</option><option>160</option><option selected>192</option><option>256</option><option>320</option></select>
+            </label>
+            <div class="grid grid-2">
+              <label class="field"><span>Sample rate</span>
+                <select class="input" id="au-sr"><option value="0">Original</option><option value="44100">44.1 kHz</option><option value="48000">48 kHz</option><option value="22050">22 kHz</option></select>
+              </label>
+              <label class="field"><span>Channels</span>
+                <select class="input" id="au-ch"><option value="0">Original</option><option value="2">Stereo</option><option value="1">Mono</option></select>
+              </label>
+            </div>
+            <div class="grid grid-2">
+              <label class="field"><span>Start (optional)</span><input class="input" id="au-start-t" placeholder="00:00:00"></label>
+              <label class="field"><span>End (optional)</span><input class="input" id="au-end-t" placeholder="00:03:30"></label>
+            </div>
+            <label class="field"><span>Volume <b id="au-vol-v">100%</b></span><input type="range" id="au-vol" min="25" max="300" step="5" value="100"></label>
+            <label class="switch"><input type="checkbox" id="au-norm"> Normalize loudness (EBU R128)</label>
+            <div class="field"><span>Save to</span>
+              <div class="row"><input class="input" id="au-out" placeholder="Same folder as the video" style="flex:1" readonly><button class="btn sm" id="au-out-pick">Choose</button><button class="btn sm ghost" id="au-out-reset" title="Use the video's folder"><i data-icon="x"></i></button></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ WALLPAPER ============ -->
+      <section class="page" data-page="wallpaper">
+        <div class="page-head">
+          <div>
+            <span class="eyebrow">배경화면 · Live Wallpaper</span>
+            <h1>A desktop that breathes</h1>
+            <p class="lead">Pick a scene or use your own video/GIF. It plays behind your desktop icons on every monitor and pauses when you lock the PC.</p>
+          </div>
+          <div class="row"><span class="status-dot" id="wp-dot"></span><span id="wp-status" class="muted">Not running</span></div>
+        </div>
+
+        <div class="wp-layout">
+          <div class="stack">
+            <div class="card">
+              <div class="card-head"><div><h2>Animated scenes</h2><div class="card-sub">Made for this app. Light on CPU.</div></div></div>
+              <div class="scene-grid" id="wp-scenes"></div>
+            </div>
+            <div class="card">
+              <div class="card-head">
+                <div><h2>Your own media</h2><div class="card-sub">MP4 / WEBM / MOV videos, GIF or any image</div></div>
+                <div class="row"><button class="btn" id="wp-pick-video"><i data-icon="video"></i>Choose video</button><button class="btn" id="wp-pick-image"><i data-icon="image"></i>Choose GIF / image</button></div>
+              </div>
+              <div class="wp-preview" id="wp-media-preview"><div class="empty" style="color:#B49A85;display:grid;place-items:center">No file chosen</div></div>
+              <div class="muted" id="wp-media-name" style="font-size:12px;margin-top:8px"></div>
+            </div>
+          </div>
+
+          <div class="card stack" style="position:sticky;top:0">
+            <h2>Options</h2>
+            <label class="field"><span>Fit</span>
+              <div class="seg" id="wp-fit"><button data-v="cover" class="on">Fill</button><button data-v="contain">Fit</button><button data-v="stretch">Stretch</button><button data-v="center">Center</button></div>
+            </label>
+            <label class="field"><span>Monitors</span>
+              <div class="seg" id="wp-displays"><button data-v="all" class="on">All monitors</button><button data-v="primary">Main only</button></div>
+            </label>
+            <label class="field"><span>Clock overlay</span>
+              <div class="seg" id="wp-clock"><button data-v="off" class="on">Off</button><button data-v="center">Center</button><button data-v="corner">Corner</button></div>
+            </label>
+            <label class="field"><span>Speed <b id="wp-speed-v">1.0×</b></span><input type="range" id="wp-speed" min="0.25" max="2" step="0.05" value="1"></label>
+            <label class="field"><span>Dim <b id="wp-dim-v">0%</b></span><input type="range" id="wp-dim" min="0" max="70" step="5" value="0"></label>
+            <label class="switch"><input type="checkbox" id="wp-muted" checked> Mute video sound</label>
+            <label class="switch"><input type="checkbox" id="wp-battery" checked> Pause on battery</label>
+            <div class="row" style="margin-top:6px">
+              <button class="btn primary" id="wp-apply" style="flex:1"><i data-icon="play"></i>Apply to desktop</button>
+              <button class="btn" id="wp-stop"><i data-icon="stop"></i>Stop</button>
+            </div>
+            <p class="muted" style="font-size:12px;margin:0">Tip: closing the window keeps the wallpaper running in the tray. Use the tray icon to stop it or quit.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ THEMES ============ -->
+      <section class="page" data-page="themes">
+        <div class="page-head">
+          <div>
+            <span class="eyebrow">테마 · Themes</span>
+            <h1>Make it feel like yours</h1>
+            <p class="lead">Style this app and personalize Windows itself: mode, accent colour, transparency and wallpaper.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><div><h2>App theme</h2><div class="card-sub">Soft paper tones, or Ink for the night.</div></div></div>
+          <div class="theme-cards" id="th-app"></div>
+        </div>
+
+        <div class="grid grid-2" style="margin-top:18px;align-items:start">
+          <div class="card">
+            <div class="card-head"><div><h2>Windows mode</h2><div class="card-sub">Applies instantly to Windows and apps.</div></div><button class="btn sm ghost" id="th-reload"><i data-icon="refresh"></i></button></div>
+            <div class="setting"><div><div class="t">App mode</div><div class="d">Light or dark for apps like Settings and Explorer</div></div><div class="seg" id="th-apps"><button data-v="light"><i data-icon="sun"></i></button><button data-v="dark"><i data-icon="moon"></i></button></div></div>
+            <div class="setting"><div><div class="t">Windows mode</div><div class="d">Taskbar, Start and system surfaces</div></div><div class="seg" id="th-system"><button data-v="light"><i data-icon="sun"></i></button><button data-v="dark"><i data-icon="moon"></i></button></div></div>
+            <div class="setting"><div><div class="t">Transparency effects</div><div class="d">Acrylic/Mica blur behind windows</div></div><label class="switch"><input type="checkbox" id="th-transp"></label></div>
+            <div class="row" style="margin-top:12px">
+              <button class="btn sm" data-preset="light"><i data-icon="sun"></i>All light</button>
+              <button class="btn sm" data-preset="dark"><i data-icon="moon"></i>All dark</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><div><h2>Accent colour</h2><div class="card-sub">Used for highlights, Start, taskbar and title bars.</div></div></div>
+            <div class="swatches" id="th-swatches"></div>
+            <div class="setting" style="margin-top:8px"><div><div class="t">Show on Start &amp; taskbar</div><div class="d">Needs dark Windows mode</div></div><label class="switch"><input type="checkbox" id="th-acc-taskbar"></label></div>
+            <div class="setting"><div><div class="t">Show on title bars &amp; borders</div></div><label class="switch"><input type="checkbox" id="th-acc-title"></label></div>
+            <p class="muted" style="font-size:12px">Some places refresh only after restarting Explorer. <button class="btn sm ghost" id="th-restart">Restart Explorer</button></p>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:18px">
+          <div class="card-head"><div><h2>Static wallpaper</h2><div class="card-sub" id="th-wp-current">Current: …</div></div>
+            <div class="row">
+              <select class="input" id="th-wp-style" style="height:34px;width:auto"><option value="fill">Fill</option><option value="fit">Fit</option><option value="stretch">Stretch</option><option value="center">Center</option><option value="tile">Tile</option><option value="span">Span</option></select>
+              <button class="btn" id="th-wp-pick"><i data-icon="image"></i>Choose image</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:18px">
+          <div class="card-head"><div><h2>Windows themes</h2><div class="card-sub">Theme packs installed on this PC. Click one to apply it (Windows opens Settings briefly).</div></div></div>
+          <div class="winthemes" id="th-win"></div>
+        </div>
+      </section>
+
+      <!-- ============ ABOUT ============ -->
+      <section class="page" data-page="about">
+        <div class="page-head"><div><span class="eyebrow">설정 · Settings</span><h1>Settings &amp; about</h1></div></div>
+        <div class="card">
+          <div class="setting"><div><div class="t">Start with Windows</div><div class="d">Opens quietly in the tray and restores your live wallpaper</div></div><label class="switch"><input type="checkbox" id="set-login"></label></div>
+          <div class="setting"><div><div class="t">Restore live wallpaper on launch</div><div class="d">Re-applies the last wallpaper you used</div></div><label class="switch"><input type="checkbox" id="set-restore"></label></div>
+          <div class="setting"><div><div class="t">Keep running in the tray</div><div class="d">When a live wallpaper is active, closing the window hides it instead of quitting</div></div><label class="switch"><input type="checkbox" id="set-tray"></label></div>
+        </div>
+        <div class="card" style="display:flex;gap:24px;align-items:center">
+          <div id="about-mascot" style="width:110px;flex:none"></div>
+          <div>
+            <h2>MyProperties <span class="chip gold" id="about-ver">v1.0.0</span></h2>
+            <p class="lead">A calm little toolkit for Windows. Open source under the MIT license. Video conversion is powered by FFmpeg, hardware details by systeminformation.</p>
+            <p class="muted" style="font-size:12px" id="about-env"></p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toasts" id="toasts"></div>
+
+  <script src="icons.js"></script>
+  <script src="../wallpaper/scenes.js"></script>
+  <script src="js/util.js"></script>
+  <script src="js/home.js"></script>
+  <script src="js/explorer.js"></script>
+  <script src="js/system.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/wallpaper.js"></script>
+  <script src="js/themes.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
